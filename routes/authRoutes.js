@@ -13,6 +13,6 @@ const router = express.Router()
 router.post('/register', register)
 router.post('/login', login)
 router.get('/logout', logout)
-router.delete('/deleteAccount', authenticate, deleteAccount)
+router.delete('/delete-account', authenticate, deleteAccount)
 
 module.exports = router
