@@ -32,6 +32,7 @@ app.use(rateLimiter({
     max: 30
 }))
 
+
 app.use(helmet())
 app.use(cors())
 app.use(xss())
@@ -42,7 +43,7 @@ app.use(express.json())
 // app.use(morgan('tiny'))
 app.use(cookieParser(process.env.JWT_SECRET))
 
-app.get('/', (req, res) => {
+app.get('/api/v1', (req, res) => {
     res.status(200).send('<h1>E Commerce API</h1>')
 })
 
