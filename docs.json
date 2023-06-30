@@ -1,0 +1,359 @@
+{
+	"info": {
+		"_postman_id": "a9e2f3f3-928c-40fa-88ed-4756522059ed",
+		"name": "e-commerce-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28252799"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Aditya\",\n    \"email\": \"aditya@gmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/register",
+							"host": [
+								"http://localhost:3000/api/v1"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"aditya@gmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/login",
+							"host": [
+								"http://localhost:3000/api/v1"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/logout",
+							"host": [
+								"http://localhost:3000/api/v1"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/deleteAccount",
+							"host": [
+								"http://localhost:3000/api/v1"
+							],
+							"path": [
+								"auth",
+								"deleteAccount"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/product",
+							"host": [
+								"http://localhost:3000/api/v1"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Created Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/product/my-products",
+							"host": [
+								"http://localhost:3000/api/v1"
+							],
+							"path": [
+								"product",
+								"my-products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/product/649ddf6f83b00cb7bf870d3e",
+							"host": [
+								"http://localhost:3000/api/v1"
+							],
+							"path": [
+								"product",
+								"649ddf6f83b00cb7bf870d3e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/product/search?owner=649ed494153da89561db4f39&price=>=5,<=309&boughtYear=<=2005,>1990&sort=-name price&select=-updatedAt&page=1&limit=5",
+							"host": [
+								"http://localhost:3000/api/v1"
+							],
+							"path": [
+								"product",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "brand",
+									"value": "liddy",
+									"disabled": true
+								},
+								{
+									"key": "owner",
+									"value": "649ed494153da89561db4f39"
+								},
+								{
+									"key": "price",
+									"value": ">=5,<=309"
+								},
+								{
+									"key": "boughtYear",
+									"value": "<=2005,>1990"
+								},
+								{
+									"key": "description",
+									"value": "hello",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "-name price"
+								},
+								{
+									"key": "select",
+									"value": "-updatedAt"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n            \"name\": \"albany sectional\",\n            \"price\": 110,\n            \"boughtYear\": 2005,\n            \"brand\": \"liddy\",\n            \"description\": \"Hello, Wolrd!\"\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/product",
+							"host": [
+								"http://localhost:3000/api/v1"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/product/649ddf6f83b00cb7bf870d3e",
+							"host": [
+								"http://localhost:3000/api/v1"
+							],
+							"path": [
+								"product",
+								"649ddf6f83b00cb7bf870d3e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"boughtYear\": 2018\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/product/649ddf6e83b00cb7bf870d3b",
+							"host": [
+								"http://localhost:3000/api/v1"
+							],
+							"path": [
+								"product",
+								"649ddf6e83b00cb7bf870d3b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Get User Cart",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/cart",
+							"host": [
+								"http://localhost:3000/api/v1"
+							],
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Product To Cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/cart/123",
+							"host": [
+								"http://localhost:3000/api/v1"
+							],
+							"path": [
+								"cart",
+								"123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product From Cart",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/cart/123",
+							"host": [
+								"http://localhost:3000/api/v1"
+							],
+							"path": [
+								"cart",
+								"123"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

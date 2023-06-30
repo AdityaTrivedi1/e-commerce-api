@@ -1,0 +1,194 @@
+[
+    {
+      "name": "accent chair",
+      "price": 25,
+      "brand": "marcos",
+      "boughtYear": 2000,
+      "descriptions": null,
+      "owner": "649ed494153da89561db4f39"
+    },
+    {
+      "name": "albany sectional",
+      "price": 109,
+      "brand": "liddy",
+      "boughtYear": 2001,
+      "descriptions": null,
+      "owner": "649ed494153da89561db4f39"
+    },
+    {
+      "name": "albany table",
+      "price": 309,
+      "brand": "liddy",
+      "boughtYear": 2002,
+      "descriptions": null,
+      "owner": "649ed494153da89561db4f39"
+    },
+    {
+      "name": "armchair",
+      "price": 125,
+      "brand": "marcos",
+      "boughtYear": 2003,
+      "descriptions": null,
+      "owner": "649ed494153da89561db4f39"
+    },
+    {
+      "name": "bar stool",
+      "price": 40,
+      "brand": "liddy",
+      "boughtYear": 2004,
+      "descriptions": null,
+      "owner": "649ed494153da89561db4f39"
+    },
+    {
+      "name": "dining table",
+      "price": 42,
+      "brand": "ikea",
+      "boughtYear": 2005,
+      "descriptions": null,
+      "owner": "649ed494153da89561db4f39"
+    },
+    {
+      "name": "emperor bed",
+      "price": 23,
+      "brand": "ikea",
+      "boughtYear": 2006,
+      "descriptions": null,
+      "owner": "649ed494153da89561db4f39"
+    },
+    {
+      "name": "entertainment center",
+      "price": 59,
+      "featured": true,
+      "brand": "caressa",
+      "boughtYear": 2007,
+      "descriptions": null,
+      "owner": "649ed446153da89561db4f35"
+    },
+    {
+      "name": "high-back bench",
+      "price": 39,
+      "featured": true,
+      "brand": "ikea",
+      "boughtYear": 2008,
+      "descriptions": null,
+      "owner": "649ed446153da89561db4f35"
+    },
+  
+    {
+      "name": "leather sofa",
+      "price": 99,
+      "brand": "caressa",
+      "boughtYear": 2009,
+      "descriptions": null,
+      "owner": "649ed446153da89561db4f35"
+    },
+    {
+      "name": "modern bookshelf",
+      "price": 31,
+      "featured": true,
+      "brand": "caressa",
+      "boughtYear": 2010,
+      "descriptions": null,
+      "owner": "649ed446153da89561db4f35"
+    },
+    {
+      "name": "modern poster",
+      "price": 30,
+      "brand": "liddy",
+      "boughtYear": 2011,
+      "descriptions": null,
+      "owner": "649ed446153da89561db4f35"
+    },
+    {
+      "name": "shelf",
+      "price": 30,
+      "brand": "ikea",
+      "boughtYear": 2012,
+      "descriptions": null,
+      "owner": "649ed446153da89561db4f35"
+    },
+    {
+      "name": "simple chair",
+      "price": 109,
+      "brand": "liddy",
+      "boughtYear": 2013,
+      "descriptions": null,
+      "owner": "649ed446153da89561db4f35"
+    },
+    {
+      "name": "sofa set",
+      "price": 129,
+      "brand": "marcos",
+      "boughtYear": 2014,
+      "descriptions": null,
+      "owner": "649ed45d153da89561db4f37"
+    },
+    {
+      "name": "suede armchair",
+      "price": 15,
+      "brand": "caressa",
+      "boughtYear": 2015,
+      "descriptions": null,
+      "owner": "649ed45d153da89561db4f37"
+    },
+    {
+      "name": "utopia sofa",
+      "price": 79,
+      "featured": true,
+      "brand": "liddy",
+      "boughtYear": 2016,
+      "descriptions": null,
+      "owner": "649ed45d153da89561db4f37"
+    },
+    {
+      "name": "vase table",
+      "price": 120,
+      "featured": true,
+      "brand": "marcos",
+      "boughtYear": 2017,
+      "descriptions": null,
+      "owner": "649ed45d153da89561db4f37"
+    },
+    {
+      "name": "wooden bed",
+      "price": 25,
+      "brand": "ikea",
+      "boughtYear": 2018,
+      "descriptions": null,
+      "owner": "649ed45d153da89561db4f37"
+    },
+    {
+      "name": "wooden desk",
+      "price": 15,
+      "brand": "ikea",
+      "boughtYear": 2019,
+      "descriptions": null,
+      "owner": "649ed45d153da89561db4f37"
+    },
+    {
+      "name": "wooden desk",
+      "price": 40,
+      "brand": "ikea",
+      "boughtYear": 2020,
+      "descriptions": null,
+      "owner": "649ed45d153da89561db4f37"
+    },
+    {
+      "name": "wooden table",
+      "price": 23,
+      "featured": true,
+      "brand": "caressa",
+      "boughtYear": 2021,
+      "descriptions": null,
+      "owner": "649ed45d153da89561db4f37"
+    },
+    {
+      "name": "a first wooden table",
+      "price": 23,
+      "featured": true,
+      "brand": "caressa",
+      "boughtYear": 2022,
+      "descriptions": null,
+      "owner": "649ed45d153da89561db4f37"
+    }
+  ]
