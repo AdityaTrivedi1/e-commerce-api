@@ -41,7 +41,14 @@ const updateProduct = async (req, res) => {
     if (productOwner.email!==email) {
         return res.status(StatusCodes.UNAUTHORIZED).send('Product can only be updated by their owners')
     }
-    product = await Product.findOneAndUpdate({_id: id}, req.body, {
+    const {name, brand, price, description, boughtYear} = req.body
+    const updateQuery = {}
+    if (name) updateQuery.name = name
+    if (brand) updateQuery.brand = brand
+    if (price) updateQuery.price = price
+    if (description) updateQuery.description = description
+    if (boughtYear) updateQuery.boughtYear = boughtYear
+    product = await Product.findOneAndUpdate({_id: id}, updateQuery, {
         new: true,
         runValidators: true
     })

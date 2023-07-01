@@ -51,7 +51,7 @@ app.use(express.json())
 app.use(cookieParser(process.env.JWT_SECRET))
 
 app.get('/', (req, res) => {
-    res.status(200).send('<h1>E-Commerce API</h1><p>Click the link below to read about the services offered by this api and try it out.<p><a href="/api-docs">Documentation</a>')
+    res.status(200).send('<h1>E-Commerce API</h1><p>Click the link below to read about the services offered by this api and try it out.<p><p>To send requests to api, click on any route, click on try it out, add data to body if required then click on execute.<p><p>Check for response in response body displayed.<p><a href="/api-docs">Documentation</a>')
 })
 
 // routes

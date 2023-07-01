@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: E Commerce API
+  title: E-Commerce API
   contact: {}
   version: '1.0'
 servers:
@@ -15,7 +15,7 @@ paths:
       operationId: RegisterUser
       parameters: []
       requestBody:
-        description: ''
+        description: '"name", "email" and "password" all are necessary.<br>No neeed to verify email. "email" syntax must be correct.<br>"email" must be unique'
         content:
           application/json:
             schema:
@@ -44,7 +44,7 @@ paths:
       operationId: LoginUser
       parameters: []
       requestBody:
-        description: ''
+        description: '"email" and "password" both are required.'
         content:
           application/json:
             schema:
@@ -108,7 +108,7 @@ paths:
       operationId: CreateProduct
       parameters: []
       requestBody:
-        description: ''
+        description: '"name", "price", "boughtYear" and "brand" are necessary to provide.<br>"description" is optional.<br>You must be logged in to create product'
         content:
           application/json:
             schema:
@@ -141,25 +141,25 @@ paths:
       parameters:
       - name: name
         in: query
-        description: ''
+        description: 'Specify product name or a part of it.'
         required: false
         style: form
         explode: true
         schema:
           type: string
-          example: albany sectional
+          example: 
       - name: brand
         in: query
-        description: ''
+        description: 'Specify brand name or a part of it.'
         required: false
         style: form
         explode: true
         schema:
           type: string
-          example: marcos
+          example: 
       - name: owner
         in: query
-        description: ''
+        description: 'Specify owner id'
         required: false
         style: form
         explode: true
@@ -168,16 +168,16 @@ paths:
           example: 649ed494153da89561db4f39
       - name: description
         in: query
-        description: ''
+        description: 'Specify keywords to search in description.'
         required: false
         style: form
         explode: true
         schema:
           type: string
-          example: Hello, World
+          example: 
       - name: price
         in: query
-        description: ''
+        description: 'specify one of the following operators: <, <=, >, >=.<br>After each operator specify the value.<br>To specify different intervals use comma as shown below'
         required: false
         style: form
         explode: true
@@ -186,16 +186,16 @@ paths:
           example: '>=5,<=309'
       - name: boughtYear
         in: query
-        description: ''
+        description: 'Same syntax as price field.'
         required: false
         style: form
         explode: true
         schema:
           type: string
-          example: <=2005,>1990
+          example: '>=1990,<=2005'
       - name: sort
         in: query
-        description: ''
+        description: 'Specify fields in space separated format.<br>Put a negative sign before a field to sort in descending order.'
         required: false
         style: form
         explode: true
@@ -204,16 +204,16 @@ paths:
           example: -name price
       - name: select
         in: query
-        description: ''
+        description: 'Specify fields in space separated format.<br>If you want to exclude instead of include field, put - sign before all fields.<br>This is a projection field which works just like mongodb'
         required: false
         style: form
         explode: true
         schema:
           type: string
-          example: -updatedAt
+          example: -boughtYear -brand -createdAt -updatedAt
       - name: page
         in: query
-        description: ''
+        description: 'Specify the page number you want to see.'
         required: false
         style: form
         explode: true
@@ -222,7 +222,7 @@ paths:
           example: 1
       - name: limit
         in: query
-        description: ''
+        description: 'Specify how many products you want in one page.'
         required: false
         style: form
         explode: true
@@ -253,9 +253,9 @@ paths:
       - in: path
         name: id
         schema:
-          type: integer
+          type: string
         required: true
-        description: The user ID
+        description: Specify product id
     get:
       tags:
       - Products
@@ -286,7 +286,7 @@ paths:
       operationId: UpdateProduct
       parameters: []
       requestBody:
-        description: ''
+        description: 'Only "name", "brand", "price", "boughtYear" and "description" can be updated.<br>A product can be updated or deleted only by its owner'
         content:
           application/json:
             schema:
@@ -321,7 +321,7 @@ paths:
         schema:
           type: integer
         required: true
-        description: The user ID
+        description: Specify product id
     post:
       tags:
       - Cart
