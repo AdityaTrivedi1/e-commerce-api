@@ -92,13 +92,16 @@ const search = async (req, res) => {
         query.description = { $regex: description, $options: 'i'}
     }
 
+    // xss-clean changes '<' symbol to '&lt;' in req.query
     const operatorMap = {
         '<': '$lt',
         '<=': '$lte',
         '>': '$gt',
         '>=': '$gte',
+        '&lt;': '$lt',
+        '&lt;=': '$lte'
     }
-    const regex = /(<|<=|>|>=)\b/g
+    const regex = /(<|<=|>|>=|&lt;|&lt;=)\b/g
 
     if (price) {
         query.price = await map('price', regex, operatorMap, price)
@@ -124,7 +127,7 @@ const search = async (req, res) => {
     limit = Number(limit) || 10
     const skip = (page - 1) * limit
     result = result.skip(skip).limit(limit)
-    
+
     const products = await result
     res.status(StatusCodes.OK).json({count: products.length, products})
 }
@@ -139,7 +142,7 @@ const map = async (field, regex, operatorMap, filter) => {
 
     filters.split(',').forEach((singleFilter) => {
         const [operator, value] = singleFilter.split('-')
-        console.log(operator, value)
+        // console.log(operator, value)
         query[operator] = Number(value)
     })
 
