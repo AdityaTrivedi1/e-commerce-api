@@ -8,11 +8,18 @@ const app = express()
 // packages
 const cookieParser = require('cookie-parser')
 const morgan = require('morgan')
+
+// security packages
 const rateLimiter = require('express-rate-limit')
 const helmet = require('helmet')
 const xss = require('xss-clean')
 const cors = require('cors')
 const mongoSanitize = require('express-mongo-sanitize')
+
+// swagger ui
+const swaggerUI = require('swagger-ui-express')
+const YAML = require('yamljs')
+const swaggerDocument = YAML.load('./swagger.yaml')
 
 // connect to db
 const connectDB = require('./db/connectDB')
@@ -44,10 +51,11 @@ app.use(express.json())
 app.use(cookieParser(process.env.JWT_SECRET))
 
 app.get('/', (req, res) => {
-    res.status(200).send('<h1>E Commerce API</h1>')
+    res.status(200).send('<h1>E-Commerce API</h1><p>Click the link below to read about the services offered by this api and try it out.<p><a href="/api-docs">Documentation</a>')
 })
 
 // routes
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/product', productRouter)
 app.use('/api/v1/cart', cartRouter)

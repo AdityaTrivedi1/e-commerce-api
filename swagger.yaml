@@ -1,0 +1,423 @@
+openapi: 3.0.0
+info:
+  title: E Commerce API
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://e-commerce-api-tk1s.onrender.com/api/v1
+  variables: {}
+paths:
+  /auth/register:
+    post:
+      tags:
+      - Auth
+      summary: Register User
+      operationId: RegisterUser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/RegisterUserRequest'
+              - example:
+                  name: Bob
+                  email: bob@gmail.com
+                  password: secret
+            example:
+              name: Bob
+              email: bob@gmail.com
+              password: secret
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /auth/login:
+    post:
+      tags:
+      - Auth
+      summary: Login User
+      operationId: LoginUser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/LoginUserRequest'
+              - example:
+                  email: bob@gmail.com
+                  password: secret
+            example:
+              email: bob@gmail.com
+              password: secret
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /auth/logout:
+    get:
+      tags:
+      - Auth
+      summary: Logout User
+      operationId: LogoutUser
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /auth/delete-account:
+    delete:
+      tags:
+      - Auth
+      summary: Delete User
+      operationId: DeleteUser
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /product:
+    get:
+      tags:
+      - Products
+      summary: Get All Products
+      operationId: GetAllProducts
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+    post:
+      tags:
+      - Products
+      summary: Create Product
+      operationId: CreateProduct
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateProductRequest'
+              - example:
+                  name: albany sectional
+                  price: 110
+                  boughtYear: 2005
+                  brand: liddy
+                  description: Hello, Wolrd!
+            example:
+              name: albany sectional
+              price: 110
+              boughtYear: 2005
+              brand: liddy
+              description: Hello, Wolrd!
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /product/search:
+    get:
+      tags:
+      - Products
+      summary: Search Products
+      operationId: SearchProducts
+      parameters:
+      - name: name
+        in: query
+        description: ''
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: albany sectional
+      - name: brand
+        in: query
+        description: ''
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: marcos
+      - name: owner
+        in: query
+        description: ''
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: 649ed494153da89561db4f39
+      - name: description
+        in: query
+        description: ''
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: Hello, World
+      - name: price
+        in: query
+        description: ''
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: '>=5,<=309'
+      - name: boughtYear
+        in: query
+        description: ''
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: <=2005,>1990
+      - name: sort
+        in: query
+        description: ''
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: -name price
+      - name: select
+        in: query
+        description: ''
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: -updatedAt
+      - name: page
+        in: query
+        description: ''
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: 1
+      - name: limit
+        in: query
+        description: ''
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: 5
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /product/my-products:
+    get:
+      tags:
+      - Products
+      summary: Get User Created Products
+      operationId: GetUserCreatedProducts
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  
+  /product/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: The user ID
+    get:
+      tags:
+      - Products
+      summary: Get Single Product
+      operationId: GetSingleProduct
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+    delete:
+      tags:
+      - Products
+      summary: Delete Product
+      operationId: DeleteProduct
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    patch:
+      tags:
+      - Products
+      summary: Update Product
+      operationId: UpdateProduct
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateProductRequest'
+              - example:
+                  boughtYear: 2018
+            example:
+              boughtYear: 2018
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /cart:
+    get:
+      tags:
+      - Cart
+      summary: Get User Cart
+      operationId: GetUserCart
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /cart/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: The user ID
+    post:
+      tags:
+      - Cart
+      summary: Add Product To Cart
+      operationId: AddProductToCart
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    delete:
+      tags:
+      - Cart
+      summary: Delete Product From Cart
+      operationId: DeleteProductFromCart
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  schemas:
+    RegisterUserRequest:
+      title: RegisterUserRequest
+      required:
+      - name
+      - email
+      - password
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        name: Aditya
+        email: aditya@gmail.com
+        password: password
+    LoginUserRequest:
+      title: LoginUserRequest
+      required:
+      - email
+      - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: aditya@gmail.com
+        password: password
+    CreateProductRequest:
+      title: CreateProductRequest
+      required:
+      - name
+      - price
+      - boughtYear
+      - brand
+      - description
+      type: object
+      properties:
+        name:
+          type: string
+        price:
+          type: integer
+          format: int32
+        boughtYear:
+          type: integer
+          format: int32
+        brand:
+          type: string
+        description:
+          type: string
+      example:
+        name: albany sectional
+        price: 110
+        boughtYear: 2005
+        brand: liddy
+        description: Hello, Wolrd!
+    UpdateProductRequest:
+      title: UpdateProductRequest
+      required:
+      - boughtYear
+      type: object
+      properties:
+        boughtYear:
+          type: integer
+          format: int32
+      example:
+        boughtYear: 2018
+tags:
+- name: Auth
+- name: Products
+- name: Cart
