@@ -78,6 +78,7 @@ const search = async (req, res) => {
     const {name, brand, description, owner, sort, price, boughtYear, select} = req.query
     let {page, limit} = req.query
     const query = {}
+
     if (name) {
         query.name = { $regex: name, $options: 'i'}
     }
@@ -90,6 +91,7 @@ const search = async (req, res) => {
     if (description) {
         query.description = { $regex: description, $options: 'i'}
     }
+
     const operatorMap = {
         '<': '$lt',
         '<=': '$lte',
@@ -97,12 +99,14 @@ const search = async (req, res) => {
         '>=': '$gte',
     }
     const regex = /(<|<=|>|>=)\b/g
+
     if (price) {
         query.price = await map('price', regex, operatorMap, price)
     }
     if (boughtYear) {
         query.boughtYear = await map('boughtYear', regex, operatorMap, boughtYear)
     }
+
     let result = Product.find(query)
     if (sort) {
         const sortOrder = sort.split(',').join(' ')
@@ -110,14 +114,17 @@ const search = async (req, res) => {
     } else {
         result = result.sort('-createdAt')
     }
+
     if (select) {
         const projection = select.split(',').join(' ')
         result = result.select(projection)
     }
+
     page = Number(page) || 1
     limit = Number(limit) || 10
     const skip = (page - 1) * limit
     result = result.skip(skip).limit(limit)
+    
     const products = await result
     res.status(StatusCodes.OK).json({count: products.length, products})
 }
@@ -125,10 +132,10 @@ const search = async (req, res) => {
 const map = async (field, regex, operatorMap, filter) => {
     let query = {}
 
-    console.log(filter)
+    // console.log(filter)
     let filters = filter.replace(regex, (operator) => `${operatorMap[operator]}-`)
 
-    console.log(filters)
+    // console.log(filters)
 
     filters.split(',').forEach((singleFilter) => {
         const [operator, value] = singleFilter.split('-')
