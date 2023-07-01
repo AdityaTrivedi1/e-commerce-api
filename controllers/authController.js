@@ -8,6 +8,9 @@ const register = async (req, res) => {
     if (!email || !name || !password) {
         return res.status(StatusCodes.BAD_REQUEST).send('Please provide name, email and password')
     }
+    if (await User.findOne({email})) {
+        return res.status(StatusCodes.BAD_REQUEST).send('email already exists')
+    }
     const user = await User.create({email, name, password})
     res.status(StatusCodes.CREATED).json({msg:'User account created', user: {email, name}})
 }
